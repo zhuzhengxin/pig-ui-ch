@@ -12,17 +12,29 @@
                  @row-save="handleSave"
                  @search-change="searchChange"
                  @row-del="rowDel">
+        <template slot="search">
+          <el-form-item label="自定义">
+            <el-input placeholder="自定义搜索" size="small" v-model="searchForm.aaa" />
+          </el-form-item>
+        </template>
+        <template slot="menuLeft">
+          <el-button type="primary"
+                     @click="handleAdd"
+                     size="small"
+                     v-if="permissions.bill_add">新 增</el-button>
+          <br /><br />
+        </template>
         <template slot-scope="scope"
                   slot="menu">
           <el-button type="text"
-                     v-if="permissions.sys_dict_edit"
+                     v-if="permissions.bill_edit"
                      icon="el-icon-check"
                      size="mini"
                      plain
                      @click="handleEdit(scope.row,scope.index)">编辑
           </el-button>
           <el-button type="text"
-                     v-if="permissions.sys_dict_del"
+                     v-if="permissions.bill_del"
                      icon="el-icon-delete"
                      size="mini"
                      plain
@@ -35,18 +47,20 @@
 </template>
 
 <script>
-  import {addObj, delObj, fetchList, putObj} from '@/api/admin/dict'
-  import {tableOption} from '@/const/crud/admin/dict'
+  import {addObj, delObj, fetchList, putObj} from '@/api/admin/bill'
+  import {tableOption} from '@/const/crud/admin/bill'
   import {mapGetters} from 'vuex'
-  import AvueIframe from "../../../components/iframe/main.vue";
+  import ElInput from "../../../../node_modules/element-ui/packages/input/src/input.vue";
 
   export default {
-    components: {AvueIframe},
+    components: {ElInput},
     name: 'dict',
     data() {
       return {
-
+        searchForm:{},
+        input: '',
         tableData: [],
+        tableData2: [],
         page: {
           total: 0, // 总页数
           currentPage: 1, // 当前页数
@@ -64,6 +78,7 @@
       ...mapGetters(['permissions'])
     },
     methods: {
+
       getList(page, params) {
         this.tableLoading = true
         fetchList(Object.assign({
@@ -71,6 +86,8 @@
           size: page.pageSize
         }, params)).then(response => {
           this.tableData = response.data.data.records
+          this.tableData2 = response.data.data2
+          console.log(this.tableData2,"this.tableData2");
           this.page.total = response.data.data.total
           this.tableLoading = false
         })
@@ -144,8 +161,9 @@
           done()
         })
       },
-      searchChange(form) {
-        this.getList(this.page, form)
+      searchChange(params) {
+        Object.assign(params, this.searchForm)
+        this.getList(this.page, params)
       }
     }
   }
