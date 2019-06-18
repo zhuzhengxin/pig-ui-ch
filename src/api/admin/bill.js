@@ -40,9 +40,9 @@ export function getObj(id) {
   })
 }
 
-export function delObj(id) {
+export function delObj(row) {
   return request({
-    url: '/admin/bill/' + id,
+    url: '/admin/bill/'+ row.id,
     method: 'delete'
   })
 }

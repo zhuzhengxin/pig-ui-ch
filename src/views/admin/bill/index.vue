@@ -142,7 +142,7 @@
       },
       rowDel: function (row, index) {
         var _this = this
-        this.$confirm('是否确认删除标签名为"' + row.label + '",数据类型为"' + row.type + '"的数据项?', '警告', {
+        this.$confirm('是否确认删除?', '警告', {
           confirmButtonText: '确定',
           cancelButtonText: '取消',
           type: 'warning'
