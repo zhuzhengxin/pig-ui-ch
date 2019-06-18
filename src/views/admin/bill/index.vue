@@ -13,9 +13,39 @@
                  @search-change="searchChange"
                  @row-del="rowDel">
         <template slot="search">
-          <el-form-item label="自定义">
-            <el-input placeholder="自定义搜索" size="small" v-model="searchForm.aaa" />
+          <!--<el-form-item label="自定义">-->
+            <!--<el-input placeholder="自定义搜索" size="small" v-model="searchForm.aaa" />-->
+          <!--</el-form-item>-->
+          <el-form-item label="创建时间:" prop="createTime">
+            <el-date-picker style="width: 250px" v-model="searchTime" type="daterange" format="yyyy-MM-dd" value-format="yyyy-MM-dd" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+            </el-date-picker>
           </el-form-item>
+          <div style="width: 100%;float: left;height: 30px;line-height: 10px; margin-bottom:10px" >
+            <ul class="info" >
+              <li><span> （未结算）出油/升:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnahAll}}升</span></span>
+              </li>
+            </ul>
+            <ul class="info" >
+              <li><span> （未结算）出油总金额:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnmoney}}</span></span>
+              </li>
+            </ul>
+            <ul class="info" >
+              <li><span> （已结算）出油/升:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cyahAll}}升</span></span>
+              </li>
+            </ul>
+            <ul class="info" >
+              <li><span> （已结算）出油总金额:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cymoney}}</span></span>
+              </li>
+            </ul>
+            <ul class="info" >
+              <li><span> （已结算）进油/升:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jyahAll}}升</span></span>
+              </li>
+            </ul>
+            <ul class="info" >
+              <li><span> （已结算）进油总金额:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jymoney}}</span></span>
+              </li>
+            </ul>
+          </div>
         </template>
         <template slot="menuLeft">
           <el-button type="primary"
@@ -57,7 +87,11 @@
     name: 'dict',
     data() {
       return {
-        searchForm:{},
+        searchForm:{
+          time1:null,
+          time2:null
+        },
+        searchTime:null,
         input: '',
         tableData: [],
         tableData2: [],
@@ -162,6 +196,11 @@
         })
       },
       searchChange(params) {
+
+        if(this.searchTime!=null){
+          this.searchForm.time1=this.searchTime[0];
+          this.searchForm.time2=this.searchTime[1];
+        }
         Object.assign(params, this.searchForm)
         this.getList(this.page, params)
       }
