@@ -47,9 +47,6 @@
                  @search-change="searchChange"
                  @row-del="rowDel">
         <template slot="search">
-          <!--<el-form-item label="自定义">-->
-            <!--<el-input placeholder="自定义搜索" size="small" v-model="searchForm.aaa" />-->
-          <!--</el-form-item>-->
           <el-form-item label="创建时间:" prop="createTime">
             <el-date-picker style="width: 250px" v-model="searchTime" type="daterange" format="yyyy-MM-dd" value-format="yyyy-MM-dd" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
             </el-date-picker>
@@ -122,7 +119,6 @@
       ...mapGetters(['permissions'])
     },
     methods: {
-
       getList(page, params) {
         this.tableLoading = true
         fetchList(Object.assign({
@@ -213,7 +209,13 @@
         }
         Object.assign(params, this.searchForm)
         this.getList(this.page, params)
-      }
+      },
+      resetForm() {
+        this.searchTime=null;
+        this.searchForm.time1=null;
+        this.searchForm.time2=null;
+        }
+
     }
   }
 </script>

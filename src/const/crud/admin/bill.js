@@ -12,6 +12,7 @@ export const tableOption = {
   showClomnuBtn: true,
   searchSize: 'mini',
   slot:true,
+  clearable:true,
 
 
   column: [
@@ -22,7 +23,7 @@ export const tableOption = {
 	  {
       label: '所属公司',
       prop: 'company',
-      'search': true
+      'search': true,
     },
 	  {
       label: '经手人',
@@ -43,27 +44,8 @@ export const tableOption = {
       label: '日期',
       type: 'date',
       prop: 'time',
-
       format: 'yyyy-MM-dd',
       valueFormat: 'yyyy-MM-dd'
-    },
-	  {
-      label: '类型',
-      prop: 'type',
-      type: 'select',
-      dicUrl: '/admin/dict/type/y_type',
-      'search': true
-    },
-	  {
-      label: '状态',
-      prop: 'moneyType',
-      type: 'select',
-      dicUrl: '/admin/dict/type/m_type',
-      'search': true
-    },
-	  {
-      label: '金额',
-      prop: 'money'
     },
 	  {
       label: '容量',
@@ -72,6 +54,27 @@ export const tableOption = {
 	  {
       label: '单价',
       prop: 'unitPrice'
+    },
+    {
+      label: '金额',
+      prop: 'money',
+      disabled:true
+    },
+    {
+      label: '状态',
+      prop: 'moneyType',
+      type: 'select',
+      dicUrl: '/admin/dict/type/m_type',
+      search: true,
+      disabled:true,
+
+    },
+    {
+      label: '类型',
+      prop: 'type',
+      type: 'select',
+      dicUrl: '/admin/dict/type/y_type',
+      'search': true
     },
   ]
 }
