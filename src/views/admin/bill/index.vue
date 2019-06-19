@@ -48,12 +48,21 @@
                  @row-del="rowDel">
         <template slot="search">
           <el-form-item label="创建时间:" prop="createTime">
-            <el-date-picker style="width: 250px" v-model="searchTime" type="daterange" format="yyyy-MM-dd" value-format="yyyy-MM-dd" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
+            <el-date-picker
+              style="width: 250px"
+              v-model="searchTime"
+              type="daterange"
+              format="yyyy-MM-dd"
+              alue-format="yyyy-MM-dd"
+              range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"
+
+            >
             </el-date-picker>
           </el-form-item>
-
+          <el-button type="primary"
+                     @click="emptytChange"
+                     size="small">清空时间</el-button>
         </template>
-
         <template slot="menuLeft">
           <el-button type="primary"
                      @click="handleAdd"
@@ -214,7 +223,12 @@
         this.searchTime=null;
         this.searchForm.time1=null;
         this.searchForm.time2=null;
-        }
+        },
+      emptytChange(){
+        this.searchTime=null;
+        this.searchForm.time1=null;
+        this.searchForm.time2=null;
+      },
 
     }
   }

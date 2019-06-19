@@ -12,7 +12,7 @@ export const tableOption = {
   showClomnuBtn: true,
   searchSize: 'mini',
   slot:true,
-  clearable:true,
+  emptyBtn:true,
 
 
   column: [
