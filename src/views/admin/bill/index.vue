@@ -2,8 +2,25 @@
   <div class="execution">
     <el-row :gutter="12">
       <el-col :span="8">
+        <el-card shadow="never">
+          <span> （已结算）出油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cyahAll}}升</span>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
         <el-card shadow="always">
           <span> （未结算）出油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnahAll}}升</span>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card shadow="hover">
+          <span>（已结算）进油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jyahAll}}升</span>
+        </el-card>
+      </el-col>
+    </el-row>
+    <el-row :gutter="12">
+      <el-col :span="8">
+        <el-card shadow="always">
+          <span> （已结算）出油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cymoney}}</span>
         </el-card>
       </el-col>
       <el-col :span="8">
@@ -13,24 +30,7 @@
       </el-col>
       <el-col :span="8">
         <el-card shadow="never">
-          <span> （已结算）出油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cyahAll}}升</span>
-        </el-card>
-      </el-col>
-    </el-row>
-    <el-row :gutter="12">
-      <el-col :span="8">
-        <el-card shadow="always">
-          <span> （已结算）出油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cymoney}}升</span>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card shadow="hover">
-          <span>（已结算）进油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jyahAll}}</span>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card shadow="never">
-          <span> （已结算）进油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jymoney}}升</span>
+          <span> （已结算）进油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jymoney}}</span>
         </el-card>
       </el-col>
     </el-row>
@@ -57,9 +57,7 @@
               range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
             </el-date-picker>
           </el-form-item>
-          <el-button type="primary"
-                     @click="emptytChange"
-                     size="small">清空时间</el-button>
+          <el-button type="primary" @click="emptytChange" size="small">清空时间</el-button>
         </template>
         <template slot="menuLeft">
           <el-button type="primary"
