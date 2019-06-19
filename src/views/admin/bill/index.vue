@@ -2,35 +2,35 @@
   <div class="execution">
     <el-row :gutter="12">
       <el-col :span="8">
-        <el-card shadow="never">
-          <span> （已结算）出油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cyahAll}}升</span>
+        <el-card shadow="never"style="color: blue">
+          <span> （已结算）出油/升:</span><span style="margin-left: 5px;">{{ tableData2.cyahAll}}升</span>
         </el-card>
       </el-col>
       <el-col :span="8">
-        <el-card shadow="always">
-          <span> （未结算）出油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnahAll}}升</span>
+        <el-card shadow="always" style="color: red">
+          <span> （未结算）出油/升:</span><span style="margin-left: 5px;">{{ tableData2.cnahAll}}升</span>
         </el-card>
       </el-col>
       <el-col :span="8">
-        <el-card shadow="hover">
-          <span>（已结算）进油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jyahAll}}升</span>
+        <el-card shadow="hover" style="color: #4DBD73">
+          <span>（已结算）进油/升:</span><span style="margin-left: 5px;">{{ tableData2.jyahAll}}升</span>
         </el-card>
       </el-col>
     </el-row>
     <el-row :gutter="12">
       <el-col :span="8">
-        <el-card shadow="always">
-          <span> （已结算）出油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cymoney}}</span>
+        <el-card shadow="always"style="color: blue">
+          <span> （已结算）出油总金额:</span><span style="margin-left: 5px;">{{ tableData2.cymoney}}</span>
         </el-card>
       </el-col>
       <el-col :span="8">
-        <el-card shadow="hover">
-          <span> （未结算）出油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnmoney}}</span>
+        <el-card shadow="hover" style="color: red">
+          <span> （未结算）出油总金额:</span><span style="margin-left: 5px;">{{ tableData2.cnmoney}}</span>
         </el-card>
       </el-col>
       <el-col :span="8">
-        <el-card shadow="never">
-          <span> （已结算）进油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jymoney}}</span>
+        <el-card shadow="never"style="color: #4DBD73">
+          <span> （已结算）进油总金额:</span><span style="margin-left: 5px;">{{ tableData2.jymoney}}</span>
         </el-card>
       </el-col>
     </el-row>
