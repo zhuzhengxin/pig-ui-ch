@@ -23,7 +23,7 @@ export const tableOption = {
 	  {
       label: '所属公司',
       prop: 'company',
-      'search': true,
+      'search': true
     },
 	  {
       label: '经手人',
