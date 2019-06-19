@@ -54,9 +54,7 @@
               type="daterange"
               format="yyyy-MM-dd"
               alue-format="yyyy-MM-dd"
-              range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"
-
-            >
+              range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
             </el-date-picker>
           </el-form-item>
           <el-button type="primary"
