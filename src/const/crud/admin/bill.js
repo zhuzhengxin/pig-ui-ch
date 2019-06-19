@@ -23,11 +23,17 @@ export const tableOption = {
 	  {
       label: '所属公司',
       prop: 'company',
+      type: 'select',
+      dicUrl: '/admin/dict/type/gs',
+      search: true,
       'search': true
     },
 	  {
-      label: '经手人',
+      label: '开票人',
       prop: 'person',
+      type: 'select',
+      dicUrl: '/admin/dict/type/kpr',
+      search: true,
       'search': true
     },
 	  {
