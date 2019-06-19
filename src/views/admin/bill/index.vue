@@ -1,5 +1,39 @@
 <template>
   <div class="execution">
+    <el-row :gutter="12">
+      <el-col :span="8">
+        <el-card shadow="always">
+          <span> （未结算）出油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnahAll}}升</span>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card shadow="hover">
+          <span> （未结算）出油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnmoney}}</span>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card shadow="never">
+          <span> （已结算）出油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cyahAll}}升</span>
+        </el-card>
+      </el-col>
+    </el-row>
+    <el-row :gutter="12">
+      <el-col :span="8">
+        <el-card shadow="always">
+          <span> （已结算）出油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cymoney}}升</span>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card shadow="hover">
+          <span>（已结算）进油/升:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jyahAll}}</span>
+        </el-card>
+      </el-col>
+      <el-col :span="8">
+        <el-card shadow="never">
+          <span> （已结算）进油总金额:</span><span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jymoney}}升</span>
+        </el-card>
+      </el-col>
+    </el-row>
     <basic-container>
 
       <avue-crud ref="crud"
@@ -20,33 +54,9 @@
             <el-date-picker style="width: 250px" v-model="searchTime" type="daterange" format="yyyy-MM-dd" value-format="yyyy-MM-dd" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期">
             </el-date-picker>
           </el-form-item>
-          <div style="width: 100%;float: left;height: 30px;line-height: 10px; margin-bottom:10px" >
-            <ul class="info" >
-              <li><span> （未结算）出油/升:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnahAll}}升</span></span>
-              </li>
-            </ul>
-            <ul class="info" >
-              <li><span> （未结算）出油总金额:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cnmoney}}</span></span>
-              </li>
-            </ul>
-            <ul class="info" >
-              <li><span> （已结算）出油/升:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cyahAll}}升</span></span>
-              </li>
-            </ul>
-            <ul class="info" >
-              <li><span> （已结算）出油总金额:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.cymoney}}</span></span>
-              </li>
-            </ul>
-            <ul class="info" >
-              <li><span> （已结算）进油/升:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jyahAll}}升</span></span>
-              </li>
-            </ul>
-            <ul class="info" >
-              <li><span> （已结算）进油总金额:<span style="color: #4DBD73;margin-left: 5px;">{{ tableData2.jymoney}}</span></span>
-              </li>
-            </ul>
-          </div>
+
         </template>
+
         <template slot="menuLeft">
           <el-button type="primary"
                      @click="handleAdd"
