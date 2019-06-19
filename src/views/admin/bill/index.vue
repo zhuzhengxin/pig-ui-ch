@@ -219,11 +219,6 @@
         Object.assign(params, this.searchForm)
         this.getList(this.page, params)
       },
-      resetForm() {
-        this.searchTime=null;
-        this.searchForm.time1=null;
-        this.searchForm.time2=null;
-        },
       emptytChange(){
         this.searchTime=null;
         this.searchForm.time1=null;
