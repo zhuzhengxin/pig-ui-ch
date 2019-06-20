@@ -114,7 +114,7 @@
               key: '附'
             },
             {
-              title: '未结算->进油/升',
+              title: '进油/升',
               subtitle: '实时',
               count: 1,
               allcount: 0,
@@ -141,7 +141,7 @@
               key: '附'
             },
             {
-              title: '未结算->进油总金额',
+              title: '进油总金额',
               subtitle: '实时',
               count: 1,
               allcount: 0,
