@@ -46,7 +46,8 @@
                  @row-update="handleUpdate"
                  @row-save="handleSave"
                  @search-change="searchChange"
-                 @row-del="rowDel">
+                 @row-del="rowDel"
+                 @selection-change="selectionChange">
         <template slot="search">
           <el-form-item label="创建时间:" prop="createTime">
             <el-date-picker style="width: 250px" v-model="searchTime" type="daterange" format="yyyy-MM-dd" value-format="yyyy-MM-dd" range-separator="至" start-placeholder="开始日期" end-placeholder="结束日期"></el-date-picker>
@@ -58,7 +59,9 @@
                      @click="handleAdd"
                      size="small"
                      v-if="permissions.bill_add">新 增</el-button>
-          <br /><br />
+        </template>
+        <template slot="menuLeft">
+          <el-button type="primary" @click="addRow" size="small">批量结算</el-button>
         </template>
         <template slot-scope="scope"
                   slot="menu">
@@ -83,7 +86,7 @@
 </template>
 
 <script>
-  import {addObj, delObj, fetchList, putObj} from '@/api/admin/bill'
+  import {addObj, delObj, fetchList, putObj,batchSettlement} from '@/api/admin/bill'
   import {tableOption} from '@/const/crud/admin/bill'
   import {mapGetters} from 'vuex'
   import ElInput from "../../../../node_modules/element-ui/packages/input/src/input.vue";
@@ -93,6 +96,7 @@
     name: 'dict',
     data() {
       return {
+
         option: {
           data: [
             {
@@ -159,6 +163,7 @@
         input: '',
         tableData: [],
         tableData2: [],
+        rowData:[],
         page: {
           total: 0, // 总页数
           currentPage: 1, // 当前页数
@@ -279,6 +284,39 @@
         this.searchTime=null;
         this.searchForm.time1=null;
         this.searchForm.time2=null;
+      },
+      selectionChange(list){
+        this.rowData = [];
+        for(var i = 0 ;i<list.length;i++){
+          this.rowData.push(list[i].id);
+        }
+      },
+
+      /**
+       * @title 批量结算
+       **/
+      addRow: function () {
+        if(this.rowData.length>0){
+          console.log(this.rowData,"this.rowData");
+          batchSettlement(this.rowData).then(data => {
+            this.tableData.push(Object.assign({}, row))
+            this.$message({
+              showClose: true,
+              message: '批量结算成功',
+              type: 'success'
+            })
+            this.getList(this.page)
+            done()
+          })
+
+        }else{
+          this.$message({
+            showClose: true,
+            message: '请勾选账单哟',
+            type: 'warning'
+          })
+          return;
+        }
       },
 
     }

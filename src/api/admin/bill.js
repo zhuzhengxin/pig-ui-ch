@@ -54,3 +54,12 @@ export function putObj(obj) {
     data: obj
   })
 }
+export function batchSettlement(rowData) {
+  return request({
+    url: '/admin/bill/batchSettlement',
+    method: 'post',
+    data: rowData
+  })
+}
+
+

@@ -2,9 +2,10 @@ export const tableOption = {
   border: true,
   index: true,
   indexLabel: '序号',
-  stripe: true,
+  stripe: false,
   menuAlign: 'center',
   align: 'center',
+  page:false,
   editBtn: true,
   delBtn: true,
   addBtn: true,
@@ -13,8 +14,10 @@ export const tableOption = {
   searchSize: 'mini',
   slot:true,
   emptyBtn:true,
-
-
+  selection: true,
+  // selectable:(row,index)=>{
+  //   return index===1;
+  // },
   column: [
 	 //  {
     //   label: '主键id',
