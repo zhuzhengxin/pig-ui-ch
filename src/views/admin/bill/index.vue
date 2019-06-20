@@ -98,7 +98,7 @@
             {
               title: '已结算->出油/升',
               subtitle: '实时',
-              count: 111,
+              count: 1,
               allcount: 0,
               text: '总容量',
               color: 'rgb(27, 201, 142)',
@@ -107,7 +107,7 @@
             {
               title: '未结算->出油/升',
               subtitle: '实时',
-              count: 3112,
+              count: 1,
               allcount: 0,
               text: '总容量',
               color: 'rgb(230, 71, 88)',
@@ -116,7 +116,7 @@
             {
               title: '未结算->进油/升',
               subtitle: '实时',
-              count: 908,
+              count: 1,
               allcount: 0,
               text: '总容量',
               color: 'rgb(178, 159, 255)',
@@ -125,7 +125,7 @@
             {
               title: '已结算->出油总金额',
               subtitle: '实时',
-              count: 0,
+              count: 1,
               allcount: 0,
               text: '明常市政支付',
               color: 'rgb(27, 201, 142)',
@@ -134,7 +134,7 @@
             {
               title: '未结算->出油总金额',
               subtitle: '实时',
-              count: 3112,
+              count: 1,
               allcount: 0,
               text: '总金额',
               color: 'rgb(230, 71, 88)',
@@ -143,7 +143,7 @@
             {
               title: '未结算->进油总金额',
               subtitle: '实时',
-              count: 908,
+              count: 1,
               allcount: 0,
               text: '总金额',
               color: 'rgb(178, 159, 255)',
