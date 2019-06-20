@@ -299,7 +299,6 @@
         if(this.rowData.length>0){
           console.log(this.rowData,"this.rowData");
           batchSettlement(this.rowData).then(data => {
-            this.tableData.push(Object.assign({}, row))
             this.$message({
               showClose: true,
               message: '批量结算成功',
