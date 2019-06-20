@@ -1,39 +1,40 @@
 <template>
   <div class="execution">
-    <el-row :gutter="12">
-      <el-col :span="8">
-        <el-card shadow="never"style="color: blue">
-          <span> （已结算）出油/升:</span><span style="margin-left: 5px;">{{ tableData2.cyahAll}}升</span>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card shadow="always" style="color: red">
-          <span> （未结算）出油/升:</span><span style="margin-left: 5px;">{{ tableData2.cnahAll}}升</span>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card shadow="hover" style="color: #4DBD73">
-          <span>（已结算）进油/升:</span><span style="margin-left: 5px;">{{ tableData2.jyahAll}}升</span>
-        </el-card>
-      </el-col>
-    </el-row>
-    <el-row :gutter="12">
-      <el-col :span="8">
-        <el-card shadow="always"style="color: blue">
-          <span> （已结算）出油总金额:</span><span style="margin-left: 5px;">{{ tableData2.cymoney}}</span>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card shadow="hover" style="color: red">
-          <span> （未结算）出油总金额:</span><span style="margin-left: 5px;">{{ tableData2.cnmoney}}</span>
-        </el-card>
-      </el-col>
-      <el-col :span="8">
-        <el-card shadow="never"style="color: #4DBD73">
-          <span> （已结算）进油总金额:</span><span style="margin-left: 5px;">{{ tableData2.jymoney}}</span>
-        </el-card>
-      </el-col>
-    </el-row>
+    <avue-data-tabs :option="option"></avue-data-tabs>
+    <!--<el-row :gutter="12">-->
+      <!--<el-col :span="8">-->
+        <!--<el-card shadow="never"style="color: blue">-->
+          <!--<span> （已结算）出油/升:</span><span style="margin-left: 5px;">{{ tableData2.cyahAll}}升</span>-->
+        <!--</el-card>-->
+      <!--</el-col>-->
+      <!--<el-col :span="8">-->
+        <!--<el-card shadow="always" style="color: red">-->
+          <!--<span> （未结算）出油/升:</span><span style="margin-left: 5px;">{{ tableData2.cnahAll}}升</span>-->
+        <!--</el-card>-->
+      <!--</el-col>-->
+      <!--<el-col :span="8">-->
+        <!--<el-card shadow="hover" style="color: #4DBD73">-->
+          <!--<span>（已结算）进油/升:</span><span style="margin-left: 5px;">{{ tableData2.jyahAll}}升</span>-->
+        <!--</el-card>-->
+      <!--</el-col>-->
+    <!--</el-row>-->
+    <!--<el-row :gutter="12">-->
+      <!--<el-col :span="8">-->
+        <!--<el-card shadow="always"style="color: blue">-->
+          <!--<span> （已结算）出油总金额:</span><span style="margin-left: 5px;">{{ tableData2.cymoney}}</span>-->
+        <!--</el-card>-->
+      <!--</el-col>-->
+      <!--<el-col :span="8">-->
+        <!--<el-card shadow="hover" style="color: red">-->
+          <!--<span> （未结算）出油总金额:</span><span style="margin-left: 5px;">{{ tableData2.cnmoney}}</span>-->
+        <!--</el-card>-->
+      <!--</el-col>-->
+      <!--<el-col :span="8">-->
+        <!--<el-card shadow="never"style="color: #4DBD73">-->
+          <!--<span> （已结算）进油总金额:</span><span style="margin-left: 5px;">{{ tableData2.jymoney}}</span>-->
+        <!--</el-card>-->
+      <!--</el-col>-->
+    <!--</el-row>-->
     <basic-container>
 
       <avue-crud ref="crud"
@@ -92,6 +93,64 @@
     name: 'dict',
     data() {
       return {
+        option: {
+          data: [
+            {
+              title: '已结算->出油/升',
+              subtitle: '实时',
+              count: 111,
+              allcount: 0,
+              text: '总容量',
+              color: 'rgb(27, 201, 142)',
+              key: '类'
+            },
+            {
+              title: '未结算->出油/升',
+              subtitle: '实时',
+              count: 3112,
+              allcount: 0,
+              text: '总容量',
+              color: 'rgb(230, 71, 88)',
+              key: '附'
+            },
+            {
+              title: '未结算->进油/升',
+              subtitle: '实时',
+              count: 908,
+              allcount: 0,
+              text: '总容量',
+              color: 'rgb(178, 159, 255)',
+              key: '评'
+            },
+            {
+              title: '已结算->出油总金额',
+              subtitle: '实时',
+              count: 0,
+              allcount: 0,
+              text: '明常市政支付',
+              color: 'rgb(27, 201, 142)',
+              key: '类'
+            },
+            {
+              title: '未结算->出油总金额',
+              subtitle: '实时',
+              count: 3112,
+              allcount: 0,
+              text: '总金额',
+              color: 'rgb(230, 71, 88)',
+              key: '附'
+            },
+            {
+              title: '未结算->进油总金额',
+              subtitle: '实时',
+              count: 908,
+              allcount: 0,
+              text: '总金额',
+              color: 'rgb(178, 159, 255)',
+              key: '评'
+            }
+          ]
+        },
         searchForm:{
           time1:null,
           time2:null
@@ -125,7 +184,15 @@
         }, params)).then(response => {
           this.tableData = response.data.data.records
           this.tableData2 = response.data.data2
+          this.option.data[0].count=this.tableData2.cyahAll;
+          this.option.data[1].count=this.tableData2.cnahAll;
+          this.option.data[2].count=this.tableData2.jyahAll;
+          this.option.data[3].count=this.tableData2.cymoney;
+          this.option.data[4].count=this.tableData2.cnmoney;
+          this.option.data[5].count=this.tableData2.jymoney;
           console.log(this.tableData2,"this.tableData2");
+          console.log(this.tableData2.jyahAll,"this.tableData2.jyahAll");
+          console.log(this.option,"this.option");
           this.page.total = response.data.data.total
           this.tableLoading = false
         })
