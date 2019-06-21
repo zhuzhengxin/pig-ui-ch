@@ -62,7 +62,9 @@ export const tableOption = {
     },
 	  {
       label: '单价',
-      prop: 'unitPrice'
+      prop: 'unitPrice',
+      type: 'select',
+      dicUrl: '/admin/dict/type/dj'
     },
     {
       label: '金额',
