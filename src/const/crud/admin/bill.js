@@ -29,6 +29,7 @@ export const tableOption = {
       type: 'select',
       dicUrl: '/admin/dict/type/gs',
       disabled:true,
+      display:false,
       'search': true
     },
 	  {
@@ -37,6 +38,7 @@ export const tableOption = {
       type: 'select',
       dicUrl: '/admin/dict/type/kpr',
       disabled:true,
+      display:false,
       'search': true
     },
 	  {
@@ -89,5 +91,5 @@ export const tableOption = {
       disabled:true
     },
 
-  ]
+  ],
 }
