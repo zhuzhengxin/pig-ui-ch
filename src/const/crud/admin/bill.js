@@ -28,7 +28,7 @@ export const tableOption = {
       prop: 'company',
       type: 'select',
       dicUrl: '/admin/dict/type/gs',
-      search: true,
+      disabled:true,
       'search': true
     },
 	  {
@@ -36,7 +36,7 @@ export const tableOption = {
       prop: 'person',
       type: 'select',
       dicUrl: '/admin/dict/type/kpr',
-      search: true,
+      disabled:true,
       'search': true
     },
 	  {
@@ -56,6 +56,23 @@ export const tableOption = {
       format: 'yyyy-MM-dd',
       valueFormat: 'yyyy-MM-dd'
     },
+    {
+      label: '状态',
+      prop: 'moneyType',
+      type: 'select',
+      dicUrl: '/admin/dict/type/m_type',
+      search: true,
+      disabled:true,
+
+    },
+    {
+      label: '类型',
+      prop: 'type',
+      type: 'select',
+      dicUrl: '/admin/dict/type/y_type',
+      'search': true,
+      disabled:true,
+    },
 	  {
       label: '容量',
       prop: 'ah'
@@ -71,21 +88,6 @@ export const tableOption = {
       prop: 'money',
       disabled:true
     },
-    {
-      label: '状态',
-      prop: 'moneyType',
-      type: 'select',
-      dicUrl: '/admin/dict/type/m_type',
-      search: true,
-      disabled:true,
 
-    },
-    {
-      label: '类型',
-      prop: 'type',
-      type: 'select',
-      dicUrl: '/admin/dict/type/y_type',
-      'search': true
-    },
   ]
 }
