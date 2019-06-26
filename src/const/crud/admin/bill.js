@@ -28,8 +28,8 @@ export const tableOption = {
       prop: 'company',
       type: 'select',
       dicUrl: '/admin/dict/type/gs',
-      disabled:true,
-      display:false,
+      // disabled:true,
+      // display:true,
       'search': true
     },
 	  {
