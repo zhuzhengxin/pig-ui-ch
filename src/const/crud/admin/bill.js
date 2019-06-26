@@ -9,7 +9,7 @@ export const tableOption = {
   editBtn: true,
   delBtn: true,
   addBtn: true,
-  refreshBtn: true,
+  // refreshBtn: true,
   showClomnuBtn: true,
   searchSize: 'mini',
   slot:true,

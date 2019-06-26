@@ -225,7 +225,7 @@
         }).then(function () {
           return delObj(row)
         }).then(() => {
-          this.getList(this.page)
+          this.getList(this.page,this.searchForm)
           _this.$message({
             showClose: true,
             message: '删除成功',
@@ -249,7 +249,7 @@
             message: '修改成功',
             type: 'success'
           })
-          this.getList(this.page)
+          this.getList(this.page,this.searchForm)
           done()
         })
       },
@@ -267,7 +267,7 @@
             message: '添加成功',
             type: 'success'
           })
-          this.getList(this.page)
+          this.getList(this.page,this.searchForm)
           done()
         })
       },
@@ -304,7 +304,7 @@
               message: '批量结算成功',
               type: 'success'
             })
-            this.getList(this.page)
+            this.getList(this.page,this.searchForm)
             done()
           })
 
