@@ -167,7 +167,7 @@
         page: {
           total: 0, // 总页数
           currentPage: 1, // 当前页数
-          pageSize: 20 // 每页显示多少条
+          pageSize: 200 // 每页显示多少条
         },
         tableLoading: false,
         tableOption: tableOption
